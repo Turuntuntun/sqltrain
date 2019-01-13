@@ -45,7 +45,7 @@
 	    }
 	    echo "<br>";
     }
-    */
+    
     $query = "SELECT * FROM users WHERE salary BETWEEN 100 and 1000";
     $result = mysqli_query($link,$query) or die (mysql_error($link));
 	    for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
@@ -127,6 +127,206 @@
         }
     echo "<br>";
     $query = "SELECT AVG(val) as sum FROM users";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT * FROM users WHERE date > NOW()";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "INSERT INTO users SET val = 22, date = NOW(), login = 'sa', salary = 500 ";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";*/
+    $query = "SELECT * FROM users WHERE YEAR(date) = 2019";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT * FROM users WHERE MONTH(date) = 3";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+     $query = "SELECT * FROM users WHERE DAY(date) = 8";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT * FROM users WHERE DAY(date) = 5 AND MONTH(date) = 4";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT * FROM users WHERE DAY(date) IN (1, 7, 11, 12, 15, 19, 21, 29)";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT * FROM users WHERE WEEKDAY(date) = 2";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT * FROM users WHERE YEAR(date) = 2016 AND DAY(date) < 10";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT * FROM users WHERE DAY(date) < MONTH(date)";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT DAY(date) as day, MONTH(date) as month, YEAR(date) as year FROM users ";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT WEEKDAY(date) as today FROM users";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT EXTRACT(YEAR FROM date) as year, EXTRACT(MONTH FROM date) as month, EXTRACT(DAY FROM date) as day FROM users";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT DATE(date) FROM users";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT DATE_FORMAT(date, '%d.%m.%Y') as date_format FROM users";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT DATE_FORMAT(date, '%Y%% %d.%m') as date_format FROM users";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT  date + INTERVAL 1 DAY as new_date  FROM users";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT  date - INTERVAL 1 DAY as new_date  FROM users";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT  date + INTERVAL 1 DAY + INTERVAL 1 HOUR as new_date  FROM users";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT  date + INTERVAL 1 YEAR + INTERVAL 2 MONTH as new_date  FROM users";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT  date + INTERVAL 1 DAY + INTERVAL 2 HOUR + INTERVAL 3 MINUTE as new_date  FROM users";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT  date + INTERVAL 1 DAY + INTERVAL 2 HOUR + INTERVAL 3 MINUTE + INTERVAL 4 SECOND as new_date  FROM users";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT  date +  INTERVAL 2 HOUR + INTERVAL 3 MINUTE + INTERVAL 5 SECOND as new_date  FROM users";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT  date +  INTERVAL 1 DAY - INTERVAL 2 HOUR as new_date  FROM users";
+    $result = mysqli_query($link,$query) or die (mysql_error($link));
+        for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
+        foreach ($date as $key => $value) {
+            var_dump($value);
+            echo '<br>';
+        }
+    echo "<br>";
+    $query = "SELECT  date +  INTERVAL 1 DAY - INTERVAL 2 HOUR - INTERVAL 3 MINUTE as new_date  FROM users";
     $result = mysqli_query($link,$query) or die (mysql_error($link));
         for( $date = []; $row = mysqli_fetch_assoc($result); $date[] = $row);
         foreach ($date as $key => $value) {
